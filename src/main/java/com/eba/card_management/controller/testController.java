@@ -16,8 +16,8 @@ public class testController {
     
     //ログインに成功したら一覧ページを表示する
     @PostMapping("/summary")
-    public String loginJudge(@RequestParam String loginId,@RequestParam String password,Model model){
-        model.addAttribute("loginId",loginId);
+    public String loginJudge(@RequestParam String userId,@RequestParam String password,Model model){
+        model.addAttribute("userId",userId);
 
         return "summary.html"; //一覧ページを表示する
     } 
