@@ -6,11 +6,18 @@
     </head>
 
     <body>
-        <h1>ようこそ th:text="${loginId}"さん</h1>
+        <h1 th:object="${accounts}">ようこそ <span th:text="*{loginId}"></span>さん</h1>
+        <div class="password" th:text="*{password}">th:text="${password}"</div>
         <ul>
-            <li>会社名</li>
-            <li>名前</li>
-            <li>名刺の画像</li>
+            <th:block th:each="card : ${cards}">
+            カードID<li th:text="${card.card_id}"></li>
+            会社名<li th:text="${card_corporation}"></li>
+            名前<li th:text="${card.name}"></li>
+            email<li th:text="${card_email}"></li>
+            電話番号<li th:text="${card.email}"></li>
+            住所<li th:text="${card.address}"></li>
+            記録者<li th:text="${card.author}"></li>
+            メモ<li th:text="${card.memo}"></li>
         </ul>
     </body>
 </html>
