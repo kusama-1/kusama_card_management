@@ -7,17 +7,34 @@
 
     <body>
         <h1 th:object="${accounts}">ようこそ <span th:text="*{loginId}"></span>さん</h1>
-        <div class="password" th:text="*{password}">th:text="${password}"</div>
-        <ul>
+        <div class="password" th:text="*{password}">th:text="${password}"←これはテスト用</div>
+        <table border="1">
             <th:block th:each="card : ${cards}">
-            カードID<li th:text="${card.card_id}"></li>
-            会社名<li th:text="${card_corporation}"></li>
-            名前<li th:text="${card.name}"></li>
-            email<li th:text="${card_email}"></li>
-            電話番号<li th:text="${card.email}"></li>
-            住所<li th:text="${card.address}"></li>
-            記録者<li th:text="${card.author}"></li>
-            メモ<li th:text="${card.memo}"></li>
-        </ul>
+            <tr>
+                <th>カードID</th>
+                <th>会社名</th>
+                <th>名前</th>
+                <th>email</th>
+                <th>電話番号</th>
+                <th>住所</th>
+                <th>記録者</th>
+                <th>メモ</th>
+                <th>写真(表)</th>
+                <th>写真(裏)</th>
+                
+            </tr>
+            <tr>
+            <td th:text="${card.card_id}"></td>
+            <td th:text="${card_corporation}"></td>
+            <td th:text="${card.name}"></td>
+            <td th:text="${card_email}"></td>
+            <td th:text="${card.email}"></td>
+            <td th:text="${card.address}"></td>
+            <td th:text="${card.author}"></td>
+            <td th:text="${card.memo}"></td>
+            <td><img th:src="${front_image_path}"></td>
+            <td><img th:src=th:text="${back_image_path}"></td>
+            </tr>
+        </table>
     </body>
 </html>

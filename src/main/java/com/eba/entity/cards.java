@@ -1,30 +1,21 @@
 package com.eba.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Setter
-@Getter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class cards {
-    int card_id;
-    String corporation;
-    String name;
-    String email;
-    int tel;
-    String address;
-    String author;
-    String memo;
-    public cards(int card_id, String corporation, String name, String email, int tel, String address, String author,
-            String memo) {
-        this.card_id = card_id;
-        this.corporation = corporation;
-        this.name = name;
-        this.email = email;
-        this.tel = tel;
-        this.address = address;
-        this.author = author;
-        this.memo = memo;
-    }
-
-    
+    private int card_id;
+    private String corporation;
+    private String name;
+    private String email;
+    private String tel;
+    private String address;
+    private String author;
+    private String memo;
+    private String front_image_path;
+    private String back_image_path;   
 }

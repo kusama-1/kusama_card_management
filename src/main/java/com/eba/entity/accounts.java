@@ -1,20 +1,16 @@
 package com.eba.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class accounts {
-
+    
     private int loginId;
     private String password;
-
-    public accounts(int l,String p){
-        this.loginId=l;
-        this.password=p;
-    }
 
     // public void setLoginId(int loginId) {
     //     this.loginId = loginId;
