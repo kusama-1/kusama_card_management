@@ -8,8 +8,10 @@
     <body>
         <h1 th:object="${accounts}">ようこそ <span th:text="*{loginId}"></span>さん</h1>
         <div class="password" th:text="*{password}">th:text="${password}"←これはテスト用</div>
+        <form th:action="@{/upload}" method="get">
+            <input type="submit" value="新規登録">
+        </form>
         <table border="1">
-            <th:block th:each="card : ${cards}">
             <tr>
                 <th>カードID</th>
                 <th>会社名</th>
@@ -21,19 +23,20 @@
                 <th>メモ</th>
                 <th>写真(表)</th>
                 <th>写真(裏)</th>
-                
             </tr>
-            <tr>
-            <td th:text="${card.card_id}"></td>
-            <td th:text="${card_corporation}"></td>
-            <td th:text="${card.name}"></td>
-            <td th:text="${card_email}"></td>
-            <td th:text="${card.email}"></td>
-            <td th:text="${card.address}"></td>
-            <td th:text="${card.author}"></td>
-            <td th:text="${card.memo}"></td>
-            <td><img th:src="${front_image_path}"></td>
-            <td><img th:src=th:text="${back_image_path}"></td>
+            <tr th:each="card : ${cards}">
+                <td th:text="${card.card_id}"></td>
+                <td th:text="${card.corporation}"></td>
+                <td th:text="${card.name}"></td>
+                <td th:text="${card.email}"></td>
+                <td th:text="${card.email}"></td>
+                <td th:text="${card.address}"></td>
+                <td th:text="${card.author}"></td>
+                <td th:text="${card.memo}"></td>
+                <!-- <td><img th:src=th:text="${front_image_path}"></td> -->
+                <td><img th:src="@{/static/images/clock_hatodokei.png}" alt="テスト"></td>
+                <!-- <td><img th:src=th:text="${back_image_path}"></td> -->
+                <!-- <td><img th:src="@{/static/images/pet_hoso_cat.png}"></td> -->
             </tr>
         </table>
     </body>
