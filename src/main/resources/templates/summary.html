@@ -25,18 +25,23 @@
                 <th>写真(裏)</th>
             </tr>
             <tr th:each="card : ${cards}">
+                <td>
+                    <form th:action="@{/edit}" method="get">
+                        <input type="submit" value="編集">
+                    </form>
+                </td>
                 <td th:text="${card.card_id}"></td>
                 <td th:text="${card.corporation}"></td>
                 <td th:text="${card.name}"></td>
                 <td th:text="${card.email}"></td>
-                <td th:text="${card.email}"></td>
+                <td th:text="${card.tel}"></td>
                 <td th:text="${card.address}"></td>
                 <td th:text="${card.author}"></td>
                 <td th:text="${card.memo}"></td>
                 <!-- <td><img th:src=th:text="${front_image_path}"></td> -->
-                <td><img th:src="@{/static/images/clock_hatodokei.png}" alt="テスト"></td>
+                <td><img th:src="@{/images/clock_hatodokei.png}" alt="テスト"></td>
                 <!-- <td><img th:src=th:text="${back_image_path}"></td> -->
-                <!-- <td><img th:src="@{/static/images/pet_hoso_cat.png}"></td> -->
+                <td><img th:src="@{/images/pet_hoso_cat.png}"></td>
             </tr>
         </table>
     </body>

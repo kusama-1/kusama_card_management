@@ -46,7 +46,7 @@ public class testController {
         //if (1 == accounts.getLoginId() && "password".equals(accounts.getPassword())) {
         if(password.equals(accounts.getPassword())){
         model.addAttribute(new accounts());
-             model.addAttribute(new cards());
+        model.addAttribute(new cards());
         String sql = "select * from cards";
         List<Map<String,Object>> list = jdbcTemplate.queryForList(sql);
         model.addAttribute("cards",list);
@@ -56,13 +56,19 @@ public class testController {
         }
     }
 
-    @PostMapping("/upload")
+    @GetMapping("/upload")
     public String upload(@ModelAttribute cards cards,Model model){
         return "upload.html";
     }
 
-    @GetMapping("/uploadSuccess")
-    public String uploadSuccess(@ModelAttribute accounts accounts,Model model){
-        return "uploadSuccess.html";
+    @PostMapping("/uploadJudge")
+    public String uploadSuccess(@ModelAttribute cards cards,Model model){
+        String sql = "insert into cards (corporation,name,email,tel,address,author,memo) values (?,?,?,?,?,?,?,?)";
+        int rows = jdbcTemplate.update(sql,cards.corporation);
+        if(rows==1){
+            return "uploadSuccsess.html";
+        }else{
+            return "uploadFailed.html";
+        }
     }
 }

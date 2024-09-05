@@ -6,17 +6,16 @@
     </head>
 
     <body>
-        <form th:action="@{/uploadSuccess}">
-            カードID<input name="card_id" type="text">
-            会社名<input name="card_corporation" type="text">
-            名前<input name="name" type="text">
-            email<input name="email" type="text">
-            電話番号<input name="tel" type="text">
-            住所<input name="address" type="text">
-            記録者<input name="author" type="text">
-            メモ<input name="memo" type="text">
-            写真(表)<input name="front_image_path" type="text">
-            写真(裏)<input name="back_image_path" type="text">
+        <form th:action="@{/uploadJudge}" method="post">
+            会社名<input name="card_corporation" type="text"><br>
+            名前<input name="name" type="text"><br>
+            email<input name="email" type="text"><br>
+            電話番号<input name="tel" type="text"><br>
+            住所<input name="address" type="text"><br>
+            記録者<input name="author" type="text"><br>
+            メモ<input name="memo" type="text"><br>
+            写真(表)<input name="front_image_path" type="text" placeholder="表の写真"><br>
+            写真(裏)<input name="back_image_path" type="text" placeholder="裏の写真"><br>
             <input type="submit" value="登録">
         </form>
     </body>
